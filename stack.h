@@ -1,0 +1,8 @@
+#define stackify(array, height) size_t stack_height_##array = height; do { } while(0)
+#define stack(T, size, name) T name[size]; stackify(name, 0)
+#define push(stack, item) do { stack[stack_height_##stack++] = (item); } while(0)
+#define pop(stack) ((void)0, stack[--stack_height_##stack])
+#define peek(stack) ((void)0, stack[stack_height_##stack - 1])
+#define skip(stack) do { --stack_height_##stack; } while(0)
+#define clear(stack) do { stack_height_##stack = 0; } while(0)
+#define height(stack) ((void)0, stack_height_##stack)
